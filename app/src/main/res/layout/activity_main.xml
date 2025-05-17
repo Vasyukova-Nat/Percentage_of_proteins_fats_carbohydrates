@@ -85,14 +85,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Углеводы-сахар:"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:singleLine="true"/>
 
             <EditText
                 android:id="@+id/carbsExpressionInput"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number|text"
-                android:ems="10"
+                android:ems="7"
                 android:layout_weight="2"
                 android:hint="60-20"/>
         </LinearLayout>
@@ -103,6 +104,7 @@
             android:layout_height="wrap_content"
             android:background="@color/yellow_button"
             android:text="Го"
+            android:textAllCaps="false"
             android:layout_gravity="center"/>
 
         <TextView
