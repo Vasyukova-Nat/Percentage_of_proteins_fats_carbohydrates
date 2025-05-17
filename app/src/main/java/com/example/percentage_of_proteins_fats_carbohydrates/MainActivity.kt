@@ -14,8 +14,9 @@ class MainActivity : AppCompatActivity() {
 
         val proteinsInput = findViewById<EditText>(R.id.proteinsInput)
         val fatsInput = findViewById<EditText>(R.id.fatsInput)
-        val carbsInput = findViewById<EditText>(R.id.carbsInput)
-        val subtractCarbsInput = findViewById<EditText>(R.id.subtractCarbsInput)
+        val carbsExpression = findViewById<EditText>(R.id.carbsExpressionInput)
+        //val carbsInput = parts.getOrNull(0)?.toIntOrNull() ?: 0
+        //val subtractCarbsInput = if (parts.size > 1) parts[1].toIntOrNull() ?: 0 else 0
         val calculateButton = findViewById<Button>(R.id.calculateButton)
         val resultText = findViewById<TextView>(R.id.resultText)
 
@@ -23,8 +24,10 @@ class MainActivity : AppCompatActivity() {
             try {
                 val proteins = proteinsInput.text.toString().toInt()
                 val fats = fatsInput.text.toString().toInt()
-                val carbs = carbsInput.text.toString().toInt()
-                val subtract_carbs = subtractCarbsInput.text.toString().toInt()
+                val expression = carbsExpression.text.toString()
+                val parts = expression.split("-")
+                val carbs = parts[0].toInt()
+                val subtract_carbs = if (parts.size > 1) parts[1].toInt() else 0
 
                 if (proteins < 0 || fats < 0 || carbs < 0) {
                     Toast.makeText(this, "Значения не могут быть отрицательными", Toast.LENGTH_SHORT).show()
@@ -45,9 +48,17 @@ class MainActivity : AppCompatActivity() {
                 val without_sucrose_fats_percent = (fats * 100.0 / without_sucrose_total).toInt()
                 val without_sucrose_carbs_percent = ((carbs - subtract_carbs) * 100.0 / without_sucrose_total).toInt()
 
-                val result = "С сахарозой:\nБелки: $with_sucrose_proteins_percent%\nЖиры: $with_sucrose_fats_percent%\nУглеводы: $with_sucrose_carbs_percent%\n " +
-                        "\nПосле вычета сахарозы:\nБелки: $without_sucrose_proteins_percent%\nЖиры: $without_sucrose_fats_percent%\nУглеводы: $without_sucrose_carbs_percent%"
-                resultText.text = result
+                if (subtract_carbs != 0) {
+                    val result =
+                        "С сахарозой:\nБелки: $with_sucrose_proteins_percent%\nЖиры: $with_sucrose_fats_percent%\nУглеводы: $with_sucrose_carbs_percent%\n " +
+                                "\nПосле вычета сахарозы:\nБелки: $without_sucrose_proteins_percent%\nЖиры: $without_sucrose_fats_percent%\nУглеводы: $without_sucrose_carbs_percent%"
+                    resultText.text = result
+                } else {
+                    val result =
+                        "Белки: $without_sucrose_proteins_percent%\nЖиры: $without_sucrose_fats_percent%\nУглеводы: $without_sucrose_carbs_percent%\n" +
+                                "\nСахароза не указана. "
+                    resultText.text = result
+                }
 
             } catch (e: NumberFormatException) {
                 Toast.makeText(this, "Пожалуйста, введите все значения", Toast.LENGTH_SHORT).show()

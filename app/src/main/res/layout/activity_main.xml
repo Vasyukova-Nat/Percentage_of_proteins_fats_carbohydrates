@@ -32,7 +32,8 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:layout_weight="2"/>
+            android:layout_weight="2"
+            android:hint="30"/>
     </LinearLayout>
 
     <LinearLayout
@@ -53,7 +54,8 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:layout_weight="2"/>
+            android:layout_weight="2"
+            android:hint="10"/>
     </LinearLayout>
 
     <LinearLayout
@@ -65,37 +67,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Углеводы:"
+            android:text="Углеводы-сахароза:"
             android:layout_weight="1"/>
 
         <EditText
-            android:id="@+id/carbsInput"
+            android:id="@+id/carbsExpressionInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="number|text"
             android:ems="10"
-            android:layout_weight="2"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Сахароза:"
-            android:layout_weight="1"/>
-
-        <EditText
-            android:id="@+id/subtractCarbsInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:layout_weight="2"/>
+            android:layout_weight="2"
+            android:hint="60-20"/>
     </LinearLayout>
 
     <Button
