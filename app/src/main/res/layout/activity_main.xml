@@ -1,98 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pale_yellow_background"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Введите значения (г):"
-        android:textSize="18sp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/yellow_toolbar"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:layout_marginBottom="16dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Белки:"
-            android:layout_weight="1"/>
+            android:text="Введите значения (г):"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
 
-        <EditText
-            android:id="@+id/proteinsInput"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Белки:"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/proteinsInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_weight="2"
+                android:hint="30"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Жиры:"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/fatsInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_weight="2"
+                android:hint="10"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Углеводы-сахар:"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:id="@+id/carbsExpressionInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number|text"
+                android:ems="10"
+                android:layout_weight="2"
+                android:hint="60-20"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/calculateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:layout_weight="2"
-            android:hint="30"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+            android:background="@color/yellow_button"
+            android:text="Го"
+            android:layout_gravity="center"/>
 
         <TextView
+            android:id="@+id/resultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Жиры:"
-            android:layout_weight="1"/>
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:text="Результат появится здесь"/>
 
-        <EditText
-            android:id="@+id/fatsInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:layout_weight="2"
-            android:hint="10"/>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Углеводы-сахароза:"
-            android:layout_weight="1"/>
-
-        <EditText
-            android:id="@+id/carbsExpressionInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number|text"
-            android:ems="10"
-            android:layout_weight="2"
-            android:hint="60-20"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/calculateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Го"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:id="@+id/resultText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        android:text="Результат появится здесь"/>
 
 </LinearLayout>

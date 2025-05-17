@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.Percentage_of_proteins_fats_carbohydrates" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/yellow_toolbar</item>
+        <item name="colorAccent">@color/yellow_button</item>
+        <item name="android:textColor">@color/dark_text</item>
+    </style>
 </resources>
